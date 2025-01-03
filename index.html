@@ -1,35 +1,63 @@
-
-<!-- saved from url=(0036)https://www.braouonline.in/Home.aspx -->
-<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8,width=device-width, initial-scale=1.0" name="viewport">
+<!DOCTYPE html>
+<html class="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BRAOU ONLINE SERVICES PORTAL</title>
     <!-- START : Chat bot -->
     <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
-<script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
-<df-messenger
-  location="asia-south1"
-  project-id="seventh-league-446210-v0"
-  agent-id="1924ec65-d4ba-4ca0-a917-693d6e52ea9d"
-  language-code="en"
-  max-query-length="-1">
-  <df-messenger-chat-bubble
-   chat-title="AskBuddy"
-   icon-url="https://tse4.mm.bing.net/th?id=OIG2.nIIM9KnkIWSxbinIUJkA&pid=ImgGn">
-  </df-messenger-chat-bubble>
-</df-messenger>
-<style>
-  df-messenger {
-    z-index: 999;
-    position: fixed;
-    --df-messenger-font-color: #000;
-    --df-messenger-font-family: Lato;
-    --df-messenger-chat-background: #FEF8E6;
-    --df-messenger-message-user-background: #C8E6C9;
-    --df-messenger-message-bot-background: #EEF7EE;
-    bottom: 16px;
-    right: 16px;
-  }
-</style>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <df-messenger
+        location="asia-south1"
+        project-id="seventh-league-446210-v0"
+        agent-id="1924ec65-d4ba-4ca0-a917-693d6e52ea9d"
+        language-code="en"
+        max-query-length="-1">
+        <df-messenger-chat-bubble
+            chat-title="AskBuddy"
+            icon-url="https://tse4.mm.bing.net/th?id=OIG2.nIIM9KnkIWSxbinIUJkA&pid=ImgGn">
+        </df-messenger-chat-bubble>
+    </df-messenger>
+    <button id="liveChatButton" style="position: fixed; bottom: 70px; right: 16px; z-index: 1000;">Live Chat</button>
+    <style>
+        df-messenger {
+            z-index: 999;
+            position: fixed;
+            --df-messenger-font-color: #000;
+            --df-messenger-font-family: Lato;
+            --df-messenger-chat-background: #FEF8E6;
+            --df-messenger-message-user-background: #C8E6C9;
+            --df-messenger-message-bot-background: #EEF7EE;
+            bottom: 16px;
+            right: 16px;
+        }
+
+        @keyframes shrinkExpand {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(0.9);
+            }
+        }
+
+        df-messenger-chat-bubble {
+            animation: shrinkExpand 1s infinite;
+        }
+    </style>
+    <script>
+        // Open chat by default after 2 seconds
+        setTimeout(function() {
+            const chatBubble = document.querySelector('df-messenger');
+            chatBubble.shadowRoot.querySelector('df-messenger-chat').openChat();
+        }, 2000);
+
+        // Add event listener for the live chat button
+        document.getElementById('liveChatButton').addEventListener('click', function() {
+            const chatBubble = document.querySelector('df-messenger');
+            chatBubble.shadowRoot.querySelector('df-messenger-chat').openChat();
+        });
+    </script>
     <!-- END: Chat bot -->
  
      <style type="text/css">
